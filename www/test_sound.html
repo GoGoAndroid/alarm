@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <title>test sound</title>
+</head>
+
+
+<body>
+
+  <label for ='sampleDuration'> sample duration (s)</label>
+    <input type='number' id='sampleDuration' value=5/>
+
+  <label for ='sampleDuration'> délai entre 2 SMS (min)</label>
+    <input type='number' id='latencyDuration' value=10 onchange='setLatencyDuration()'/>
+
+
+  <button onclick='testSampling()' id='toggleListen' onChange='toggleListen(this,true)'>
+    Start listening</button>
+
+  <button onclick='testSampling()'>
+    Start sampling</button>
+
+  <code><pre id='msg'></pre></code>
+
+  <script src="./js/array_extensions.js"></script>
+  <script src="./js/sms.js"></script>
+  <script src="./js/sound.js"></script>
+
+  <script >
+
+
+    mes=document.getElementById('msg')
+
+    log=(m)=>mes.innerHTML= mes.innerHTML+ "\n" +m
+
+    toggleLabelListen(el=document.getElementById('toggleListen'))=>
+        el.innerHTML==el.InnerHTML=='Stop listenning'?'Start listenning':'Stop listenning'
+
+
+    toggleListen=(el)=>{
+        latency=(el.innerHTML=='Start listening')
+        toggleLabelListen(el)
+    }
+
+    sendSms=>{
+      log("Pattern just matched")
+      startLAtency()
+    }
+
+    setLatencyDuration= =>
+        latencyDuration=1000*60*document.getElementById('latencyDuration').value
+
+
+    function testSampling(){
+
+      let duration =1000*document.getElementById('sampleDuration').value
+      startSampling(duration)
+      setTimeout(function(){
+           console.assert( sample.length>20 , 'Error  sample.length>20  %s', sample.length>20)
+            log("Test sample OK")
+
+      }, duration +100)
+
+    }
+
+    console.assert(
+      array_extensions.min([1,2])==1,
+        "erreur array_extensions.min([[1,2])==1 :%s ", array_extensions.min([1,2])
+    )
+
+    console.assert(
+      array_extensions.max([1,2])==2,
+        "erreur array_extensions.max([[1,2])==2 :%s ", array_extensions.max([1,2])
+    )
+
+    console.assert(
+      !array_extensions.similar([1,1],[1,2]),
+      "erreur !array_extensions.similar([1,1],[1,2])"
+    )
+
+    console.assert(
+      array_extensions.similar([1,2],[1,2]),
+      "erreur array_extensions.similar([1,1],[1,1])"
+    )
+
+
+    console.assert(
+      array_extensions.similarSquare([1,2],[1,2]),
+      "erreur array_extensions.similarSquare([1,2],[1,2])"
+    )
+
+
+    log("Test OK")
+
+
+  </script>
+
+
+</body>
+
+</html>

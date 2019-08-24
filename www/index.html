@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+  <link rel="stylesheet" type="text/css" href="css/index.css">
+  <title>SMS au feu</title>
+</head>
+
+<body>
+  <h1>SMS Au feu</h1>
+  <h2 style='padding:0.3em;'>
+    Envoi un SMS à <span id='num_display'>06 82 52 67 23</span> lorsque pendant <span id='temps_display'>10</span> secondes,
+    un bruit constant supérieur à <span id='DB_display'>35</span> DB ést détecté
+  </h2>
+  <div class="app">
+
+    <div id="deviceready" class="blink">
+      <p class="event listening">Connecting to Device</p>
+      <p class="event received">Device is Ready</p>
+    </div>
+
+  </div>
+<details><summary style='font-size:24px;'>⚙</summary>
+  <table>
+    <tr>
+      <td><label for="temps">Temp de test </label></td>
+      <td><input type='number' name='temps' id='temps'></input> sec</td>
+    </tr>
+    <tr>
+      <td><label for="DB">Valeur de déclenchement en DB</label></td>
+      <td><input type='number' name='DB' id='DB'></input></td>
+    </tr>
+    <tr>
+      <td><label for="num">Numéros à appeler</label></td>
+      <td><input type='tel' name='num'  style='width:30em;' id='num'></input></td>
+    </tr>
+    <tr>
+      <td><label for="message">Message</label></td>
+      <td><input type='text' name='mess' id='mess' style='width:20em;' value="Alerte, feu possible à l'écrevis"></input></td>
+    </tr>
+  </table>
+</details>
+  <script type="text/javascript" src="cordova.js"></script>
+  <script type="text/javascript" src="js/index.js"></script>
+</body>
+
+</html>
