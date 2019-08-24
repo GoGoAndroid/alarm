@@ -11,6 +11,7 @@ const array_extensions={
               ,[0,array2]
             )[0])
 },
+
 similar: function(array1,array2) { return  this. distance(array1,array2)< this.amplitude(array1)/100;},
 similarSquare: function(array1,array2) {
     return true
