@@ -1,5 +1,5 @@
 # alarm
-Fire alar using alarm sound detection (France)
+Fire alarm using alarm sound detection (France)
 
 HTML for cordova projet
 
